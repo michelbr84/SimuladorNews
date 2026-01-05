@@ -8,8 +8,7 @@ const newsData = [
     category: "brasil",
     date: "Sáb 21 Ago TAR",
     title: "Brasil toma conhecimento de candidatura a lugar",
-    body:
-      "O Brasil recebeu a sua candidatura ao cargo de treinador.\n\nA escolha será anunciada em breve."
+    body: "O Brasil recebeu a sua candidatura ao cargo de treinador.\n\nA escolha será anunciada em breve."
   },
   {
     id: "n2",
@@ -17,8 +16,7 @@ const newsData = [
     category: "brasil",
     date: "Sáb 21 Ago TAR",
     title: "Brasil escolhe o seu para treinador",
-    body:
-      "A federação anunciou o novo treinador.\n\nA equipa técnica deverá apresentar-se nos próximos dias."
+    body: "A federação anunciou o novo treinador.\n\nA equipa técnica deverá apresentar-se nos próximos dias."
   },
   {
     id: "n3",
@@ -26,8 +24,7 @@ const newsData = [
     category: "competicoes",
     date: "Sex 20 Ago TAR",
     title: "Reservas do Baré: empate",
-    body:
-      "A equipa de reservas empatou num jogo equilibrado.\n\nDestaques: organização defensiva e boa posse de bola."
+    body: "A equipa de reservas empatou num jogo equilibrado.\n\nDestaques: organização defensiva e boa posse de bola."
   },
   {
     id: "n4",
@@ -35,8 +32,7 @@ const newsData = [
     category: "transferencias",
     date: "Sex 20 Ago MNNH",
     title: "Nonato transfere-se para o Parma",
-    body:
-      "O jogador foi apresentado e assinou contrato.\n\nO clube espera integração imediata no plantel."
+    body: "O jogador foi apresentado e assinou contrato.\n\nO clube espera integração imediata no plantel."
   },
   {
     id: "n5",
@@ -44,43 +40,12 @@ const newsData = [
     category: "transferencias",
     date: "Qui 19 Ago NTE",
     title: "Aldrovani elogiado",
-    body:
-      "O atleta recebeu elogios pela consistência.\n\nO staff destaca evolução física e disciplina tática."
-  },
-
-  // Exemplos por aba
-  {
-    id: "m1",
-    tab: "mensagens",
-    category: "all",
-    date: "Sáb 21 Ago TAR",
-    title: "Mensagem: reunião marcada",
-    body:
-      "Foi agendada uma reunião para discutir próximos jogos.\n\nVerifique a sua caixa de mensagens."
-  },
-  {
-    id: "c1",
-    tab: "competicoes",
-    category: "competicoes",
-    date: "Sex 20 Ago TAR",
-    title: "Competição: calendário atualizado",
-    body:
-      "O calendário da competição foi atualizado.\n\nAlguns horários podem ter sido ajustados."
-  },
-  {
-    id: "l1",
-    tab: "lesoes",
-    category: "lesoes",
-    date: "Qui 19 Ago TAR",
-    title: "Lesão: jogador em observação",
-    body:
-      "O departamento médico avaliou o atleta.\n\nPrevisão de retorno será confirmada após exames."
+    body: "O atleta recebeu elogios pela consistência.\n\nO staff destaca evolução física e disciplina tática."
   }
 ];
 
 // ---------- UI refs ----------
 const els = {
-  tabs: Array.from(document.querySelectorAll(".tab")),
   list: document.getElementById("newsList"),
   filter: document.getElementById("filterSelect"),
   title: document.getElementById("newsTitle"),
@@ -95,17 +60,26 @@ const els = {
   sideLastName: document.getElementById("sideLastName"),
   badgeFirstName: document.getElementById("badgeFirstName"),
   badgeLastName: document.getElementById("badgeLastName"),
+  badgeInlineFirst: document.getElementById("badgeInlineFirst"),
+  badgeInlineLast: document.getElementById("badgeInlineLast"),
   editUserBtn: document.getElementById("editUserBtn"),
 
   // Modal
   modal: document.getElementById("userModal"),
   form: document.getElementById("userForm"),
   firstNameInput: document.getElementById("firstNameInput"),
-  lastNameInput: document.getElementById("lastNameInput")
+  lastNameInput: document.getElementById("lastNameInput"),
+
+  // Toolbar dropdowns
+  verDD: document.querySelector('[data-tool-dd="ver"]'),
+  critDD: document.querySelector('[data-tool-dd="criterio"]'),
+  verLabel: document.getElementById("verLabel"),
+  critLabel: document.getElementById("critLabel"),
 };
 
+const sddRoots = Array.from(document.querySelectorAll(".sdd"));
+
 let state = {
-  activeTab: "todas",
   filter: "all",
   visible: [],
   selectedIndex: -1,
@@ -139,33 +113,19 @@ function saveUser(user){
 
 function renderUser(){
   const full = `${state.user.firstName} ${state.user.lastName}`.trim();
-
   els.headerFullName.textContent = full || "Usuário";
   els.sideFirstName.textContent = state.user.firstName || "—";
   els.sideLastName.textContent = state.user.lastName || "—";
-
   els.badgeFirstName.textContent = state.user.firstName || "—";
   els.badgeLastName.textContent = state.user.lastName || "—";
+  if (els.badgeInlineFirst) els.badgeInlineFirst.textContent = state.user.firstName || "—";
+  if (els.badgeInlineLast) els.badgeInlineLast.textContent = state.user.lastName || "—";
 }
 
 // ---------- News logic ----------
-function setActiveTab(tabId){
-  state.activeTab = tabId;
-  state.selectedIndex = -1;
-
-  els.tabs.forEach(btn => {
-    const isOn = btn.dataset.tab === tabId;
-    btn.classList.toggle("is-active", isOn);
-    btn.setAttribute("aria-selected", String(isOn));
-  });
-
-  render();
-}
-
 function getFiltered(){
-  const byTab = newsData.filter(n => n.tab === state.activeTab);
-  if (state.filter === "all") return byTab;
-  return byTab.filter(n => n.category === state.filter);
+  if (state.filter === "all") return newsData;
+  return newsData.filter(n => n.category === state.filter);
 }
 
 function render(){
@@ -189,7 +149,6 @@ function render(){
 
     row.appendChild(date);
     row.appendChild(title);
-
     row.addEventListener("click", () => selectIndex(idx));
 
     els.list.appendChild(row);
@@ -199,7 +158,7 @@ function render(){
     selectIndex(0, { scroll:false });
   } else if (state.visible.length === 0){
     els.title.textContent = "Sem notícias neste filtro";
-    els.body.textContent = "Altere o filtro ou selecione outra aba.";
+    els.body.textContent = "Altere o filtro para ver resultados.";
   }
 }
 
@@ -240,15 +199,12 @@ function goNext(){
   selectIndex(state.selectedIndex + 1);
 }
 
-// ---------- Modal helpers ----------
+// ---------- Modal (editar usuário) ----------
 function openModal(){
   els.firstNameInput.value = state.user.firstName;
   els.lastNameInput.value = state.user.lastName;
-
   els.modal.classList.add("is-open");
   els.modal.setAttribute("aria-hidden", "false");
-
-  // foco no primeiro campo
   setTimeout(() => els.firstNameInput.focus(), 0);
 }
 
@@ -261,9 +217,99 @@ function isCloseTarget(target){
   return target && target.getAttribute && target.getAttribute("data-close") === "1";
 }
 
-// ---------- Events ----------
-els.tabs.forEach(btn => btn.addEventListener("click", () => setActiveTab(btn.dataset.tab)));
+/* ---------- SIDE DROPDOWNS ---------- */
+function closeAllSideDropdowns(){
+  sddRoots.forEach(dd => dd.classList.remove("is-open"));
+}
 
+function toggleSideDropdown(dd){
+  const willOpen = !dd.classList.contains("is-open");
+  closeAllSideDropdowns();
+  if (willOpen) dd.classList.add("is-open");
+}
+
+function isInsideSideDropdown(node){
+  return sddRoots.some(dd => dd.contains(node));
+}
+
+sddRoots.forEach(dd => {
+  const btn = dd.querySelector(".side-btn--dd");
+  if (!btn) return;
+
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleSideDropdown(dd);
+  });
+
+  dd.querySelectorAll(".sdd-item").forEach(item => {
+    item.addEventListener("click", () => {
+      if (item.classList.contains("has-sub")) return;
+      closeAllSideDropdowns();
+    });
+  });
+});
+
+// clique fora fecha dropdown
+document.addEventListener("click", (e) => {
+  if (!isInsideSideDropdown(e.target)) closeAllSideDropdowns();
+});
+
+/* ---------- TOOLBAR DROPDOWNS (Ver / Critério) ---------- */
+function initToolDropdown(root, labelEl){
+  if (!root) return;
+
+  const btn = root.querySelector(".tool-btn--dd");
+  const items = Array.from(root.querySelectorAll(".tool-item"));
+
+  function setOpen(isOpen){
+    root.classList.toggle("is-open", isOpen);
+    if (btn) btn.setAttribute("aria-expanded", String(isOpen));
+  }
+
+  function close(){ setOpen(false); }
+
+  btn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    setOpen(!root.classList.contains("is-open"));
+  });
+
+  items.forEach(item => {
+    item.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      items.forEach(i => i.classList.remove("is-active"));
+      item.classList.add("is-active");
+
+      const value = item.getAttribute("data-value") || item.textContent.trim();
+      if (labelEl) labelEl.textContent = value;
+
+      close();
+    });
+  });
+
+  // fecha ao clicar fora
+  document.addEventListener("click", (e) => {
+    if (!root.contains(e.target)) close();
+  });
+
+  // ESC fecha
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") close();
+  });
+}
+
+initToolDropdown(els.verDD, els.verLabel);
+initToolDropdown(els.critDD, els.critLabel);
+
+// ESC fecha tudo (dropdown + modal)
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape"){
+    closeAllSideDropdowns();
+    if (els.modal.classList.contains("is-open")) closeModal();
+  }
+});
+
+// ---------- Events ----------
 els.filter.addEventListener("change", (e) => {
   state.filter = e.target.value;
   state.selectedIndex = -1;
@@ -281,11 +327,6 @@ els.editUserBtn.addEventListener("click", openModal);
 els.modal.addEventListener("click", (e) => {
   const t = e.target;
   if (isCloseTarget(t)) closeModal();
-});
-
-// ESC to close
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && els.modal.classList.contains("is-open")) closeModal();
 });
 
 // Save user
@@ -307,4 +348,4 @@ els.form.addEventListener("submit", (e) => {
 
 // ---------- Init ----------
 renderUser();
-setActiveTab("todas");
+render();

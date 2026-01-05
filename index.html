@@ -35,18 +35,218 @@
         </button>
       </div>
 
+      <!-- SIDE MENU -->
       <nav class="side-menu" aria-label="Menu">
         <button class="side-btn" type="button">Continuar Jogo</button>
 
-        <button class="side-btn is-active" type="button">
-          <span class="badge" id="badgeFirstName">Michel</span>
-          <span id="badgeLastName">Duek</span>
-        </button>
+        <!-- Jogador (dropdown pequeno igual ao original: 2 itens) -->
+        <div class="sdd" data-sdd="jogador">
+          <button class="side-btn side-btn--dd is-active" type="button">
+            <span>
+              <span class="badge" id="badgeFirstName">Michel</span>
+              <span id="badgeLastName">Duek</span>
+            </span>
+            <span class="dd-caret">▶</span>
+          </button>
 
-        <button class="side-btn" type="button">Competições</button>
-        <button class="side-btn" type="button">Nações &amp; Clubes</button>
-        <button class="side-btn" type="button">Procurar</button>
-        <button class="side-btn is-warn" type="button">Opções Jogo</button>
+          <div class="sdd-menu sdd-menu--small" role="menu" aria-label="Jogador">
+            <button class="sdd-item" role="menuitem">Continuar Jogo</button>
+            <button class="sdd-item" role="menuitem">
+              <span class="badge-inline" id="badgeInlineFirst">Michel</span>
+              <span class="badge-inline" id="badgeInlineLast">Duek</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="sdd" data-sdd="competicoes">
+          <button class="side-btn side-btn--dd" type="button">
+            Competições <span class="dd-caret">▶</span>
+          </button>
+
+          <div class="sdd-menu" role="menu" aria-label="Competições">
+            <div class="sdd-item has-sub" role="menuitem" tabindex="0">
+              Campeonato Mundial <span class="chev">▶</span>
+              <div class="submenu" role="menu" aria-label="Campeonato Mundial">
+                <button class="sdd-item" role="menuitem">AC</button>
+                <button class="sdd-item" role="menuitem">SB6</button>
+                <button class="sdd-item" role="menuitem">Ped</button>
+              </div>
+            </div>
+
+            <div class="sdd-item has-sub" role="menuitem" tabindex="0">
+              Internacionais <span class="chev">▶</span>
+              <div class="submenu" role="menu" aria-label="Internacionais">
+                <button class="sdd-item" role="menuitem">Seleções</button>
+                <button class="sdd-item" role="menuitem">Convocados</button>
+              </div>
+            </div>
+
+            <div class="sdd-item has-sub" role="menuitem" tabindex="0">
+              Internacionais-Clubes <span class="chev">▶</span>
+              <div class="submenu" role="menu" aria-label="Internacionais-Clubes">
+                <button class="sdd-item" role="menuitem">Ranking</button>
+                <button class="sdd-item" role="menuitem">Fases</button>
+              </div>
+            </div>
+
+            <div class="sdd-item has-sub" role="menuitem" tabindex="0">
+              Norte Americanas <span class="chev">▶</span>
+              <div class="submenu" role="menu" aria-label="Norte Americanas">
+                <button class="sdd-item" role="menuitem">EUA</button>
+                <button class="sdd-item" role="menuitem">México</button>
+                <button class="sdd-item" role="menuitem">Canadá</button>
+              </div>
+            </div>
+
+            <div class="sdd-item has-sub" role="menuitem" tabindex="0">
+              Sul Americanas <span class="chev">▶</span>
+              <div class="submenu" role="menu" aria-label="Sul Americanas">
+                <button class="sdd-item" role="menuitem">Brasil</button>
+                <button class="sdd-item" role="menuitem">Argentina</button>
+                <button class="sdd-item" role="menuitem">Uruguai</button>
+              </div>
+            </div>
+
+            <div class="sdd-item has-sub" role="menuitem" tabindex="0">
+              Asiáticas <span class="chev">▶</span>
+              <div class="submenu" role="menu" aria-label="Asiáticas">
+                <button class="sdd-item" role="menuitem">Ligas</button>
+                <button class="sdd-item" role="menuitem">Clubes</button>
+              </div>
+            </div>
+
+            <div class="sdd-item has-sub" role="menuitem" tabindex="0">
+              Europeias <span class="chev">▶</span>
+              <div class="submenu" role="menu" aria-label="Europeias">
+                <button class="sdd-item" role="menuitem">Inglaterra</button>
+                <button class="sdd-item" role="menuitem">Espanha</button>
+                <button class="sdd-item" role="menuitem">Itália</button>
+              </div>
+            </div>
+
+            <div class="sdd-item has-sub" role="menuitem" tabindex="0">
+              Oceânicas <span class="chev">▶</span>
+              <div class="submenu" role="menu" aria-label="Oceânicas">
+                <button class="sdd-item" role="menuitem">Austrália</button>
+                <button class="sdd-item" role="menuitem">Nova Zelândia</button>
+              </div>
+            </div>
+
+            <div class="sdd-item has-sub" role="menuitem" tabindex="0">
+              Países A-G <span class="chev">▶</span>
+              <div class="submenu" role="menu" aria-label="Países A-G">
+                <button class="sdd-item" role="menuitem">A</button>
+                <button class="sdd-item" role="menuitem">B</button>
+                <button class="sdd-item" role="menuitem">C</button>
+                <button class="sdd-item" role="menuitem">D</button>
+                <button class="sdd-item" role="menuitem">E</button>
+                <button class="sdd-item" role="menuitem">F</button>
+                <button class="sdd-item" role="menuitem">G</button>
+              </div>
+            </div>
+
+            <div class="sdd-item has-sub" role="menuitem" tabindex="0">
+              Países H-Z <span class="chev">▶</span>
+              <div class="submenu" role="menu" aria-label="Países H-Z">
+                <button class="sdd-item" role="menuitem">H</button><button class="sdd-item" role="menuitem">I</button><button class="sdd-item" role="menuitem">J</button>
+                <button class="sdd-item" role="menuitem">K</button><button class="sdd-item" role="menuitem">L</button><button class="sdd-item" role="menuitem">M</button>
+                <button class="sdd-item" role="menuitem">N</button><button class="sdd-item" role="menuitem">O</button><button class="sdd-item" role="menuitem">P</button>
+                <button class="sdd-item" role="menuitem">Q</button><button class="sdd-item" role="menuitem">R</button><button class="sdd-item" role="menuitem">S</button>
+                <button class="sdd-item" role="menuitem">T</button><button class="sdd-item" role="menuitem">U</button><button class="sdd-item" role="menuitem">V</button>
+                <button class="sdd-item" role="menuitem">W</button><button class="sdd-item" role="menuitem">X</button><button class="sdd-item" role="menuitem">Y</button>
+                <button class="sdd-item" role="menuitem">Z</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sdd" data-sdd="nacoes">
+          <button class="side-btn side-btn--dd" type="button">
+            Nações &amp; Clubes <span class="dd-caret">▶</span>
+          </button>
+
+          <div class="sdd-menu" role="menu" aria-label="Nações & Clubes">
+            <div class="sdd-item has-sub" role="menuitem" tabindex="0">
+              Nações <span class="chev">▶</span>
+              <div class="submenu" role="menu" aria-label="Nações">
+                <button class="sdd-item" role="menuitem">Seleções</button>
+                <button class="sdd-item" role="menuitem">Ranking</button>
+              </div>
+            </div>
+
+            <div class="sdd-item has-sub" role="menuitem" tabindex="0">
+              Sub-21s <span class="chev">▶</span>
+              <div class="submenu" role="menu" aria-label="Sub-21s">
+                <button class="sdd-item" role="menuitem">Competições</button>
+                <button class="sdd-item" role="menuitem">Equipas</button>
+              </div>
+            </div>
+
+            <div class="sdd-item has-sub" role="menuitem" tabindex="0">
+              Maiores Clubes <span class="chev">▶</span>
+              <div class="submenu" role="menu" aria-label="Maiores Clubes">
+                <button class="sdd-item" role="menuitem">Top 50</button>
+                <button class="sdd-item" role="menuitem">Top 100</button>
+              </div>
+            </div>
+
+            <div class="sdd-item has-sub" role="menuitem" tabindex="0">
+              Ligas <span class="chev">▶</span>
+              <div class="submenu" role="menu" aria-label="Ligas">
+                <button class="sdd-item" role="menuitem">Nacionais</button>
+                <button class="sdd-item" role="menuitem">Internacionais</button>
+              </div>
+            </div>
+
+            <div class="sdd-item has-sub" role="menuitem" tabindex="0">
+              Outros Escalões <span class="chev">▶</span>
+              <div class="submenu" role="menu" aria-label="Outros Escalões">
+                <button class="sdd-item" role="menuitem">Juniores</button>
+                <button class="sdd-item" role="menuitem">Juvenis</button>
+              </div>
+            </div>
+
+            <div class="sdd-item has-sub" role="menuitem" tabindex="0">
+              Outros Clubes <span class="chev">▶</span>
+              <div class="submenu" role="menu" aria-label="Outros Clubes">
+                <button class="sdd-item" role="menuitem">Pesquisar</button>
+                <button class="sdd-item" role="menuitem">Favoritos</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sdd" data-sdd="procurar">
+          <button class="side-btn side-btn--dd" type="button">
+            Procurar <span class="dd-caret">▶</span>
+          </button>
+
+          <div class="sdd-menu sdd-menu--small" role="menu" aria-label="Procurar">
+            <button class="sdd-item" role="menuitem">País</button>
+            <button class="sdd-item" role="menuitem">Clube</button>
+            <button class="sdd-item" role="menuitem">Staff</button>
+            <button class="sdd-item" role="menuitem">Jogador</button>
+          </div>
+        </div>
+
+        <div class="sdd" data-sdd="opcoes">
+          <button class="side-btn side-btn--dd is-warn" type="button">
+            Opções Jogo <span class="dd-caret">▶</span>
+          </button>
+
+          <div class="sdd-menu" role="menu" aria-label="Opções Jogo">
+            <button class="sdd-item" role="menuitem">Gravar Jogo</button>
+            <button class="sdd-item" role="menuitem">Adicionar Treinador</button>
+            <button class="sdd-item" role="menuitem">Estatuto Treinador</button>
+            <button class="sdd-item" role="menuitem">Definições do Jogo</button>
+            <button class="sdd-item" role="menuitem">Ligas Seleccionadas</button>
+            <button class="sdd-item" role="menuitem">Quadro de Honra</button>
+            <button class="sdd-item" role="menuitem">Créditos do Jogo</button>
+            <button class="sdd-item" role="menuitem">Páginas Internet</button>
+            <button class="sdd-item" role="menuitem">Reiniciar Jogo</button>
+            <button class="sdd-item" role="menuitem">Deixar Jogo</button>
+          </div>
+        </div>
       </nav>
     </aside>
 
@@ -65,6 +265,55 @@
         <button class="tab" role="tab" aria-selected="false" data-tab="mensagens">Mensagens</button>
         <button class="tab" role="tab" aria-selected="false" data-tab="competicoes">Competições</button>
         <button class="tab" role="tab" aria-selected="false" data-tab="lesoes">Lesões e Suspensões</button>
+      </section>
+
+      <!-- TOOLBAR (AQUI ESTÁ O “Ver” COMO NA IMAGEM) -->
+      <section class="toolbar" aria-label="Barra de opções">
+        <div class="tool-dd" data-tool-dd="ver">
+          <button class="tool-btn tool-btn--dd" type="button" aria-haspopup="true" aria-expanded="false">
+            <span class="tool-btn__label" id="verLabel">Plantel do Baré</span>
+            <span class="tool-btn__caret">▼</span>
+          </button>
+
+          <div class="tool-menu" role="menu" aria-label="Ver">
+            <button class="tool-item is-active" role="menuitem" data-value="Plantel do Baré">Plantel do Baré</button>
+            <button class="tool-item" role="menuitem" data-value="Reservas do Baré">Reservas do Baré</button>
+            <button class="tool-item" role="menuitem" data-value="Controlar Equipa Reservas">Controlar Equipa Reservas</button>
+            <button class="tool-item" role="menuitem" data-value="Confiança da Direção">Confiança da Direção</button>
+            <button class="tool-item" role="menuitem" data-value="Rescindir com Clube">Rescindir com Clube</button>
+
+            <div class="tool-sep"></div>
+
+            <button class="tool-item" role="menuitem" data-value="Notícias">Notícias</button>
+            <button class="tool-item" role="menuitem" data-value="Pesquisa Jogador & Staff">Pesquisa Jogador &amp; Staff</button>
+            <button class="tool-item" role="menuitem" data-value="Comparar dois jogadores escolhidos">Comparar dois jogadores escolhidos</button>
+            <button class="tool-item" role="menuitem" data-value="Estatísticas dos Treinadores">Estatísticas dos Treinadores</button>
+            <button class="tool-item" role="menuitem" data-value="Informação de Empregos">Informação de Empregos</button>
+
+            <div class="tool-sep"></div>
+
+            <button class="tool-item" role="menuitem" data-value="Transferências">Transferências</button>
+            <button class="tool-item" role="menuitem" data-value="Historial">Historial</button>
+
+            <div class="tool-sep"></div>
+
+            <button class="tool-item" role="menuitem" data-value="Ir de Férias">Ir de Férias</button>
+            <button class="tool-item" role="menuitem" data-value="Retirar-se">Retirar-se</button>
+          </div>
+        </div>
+
+        <div class="tool-dd tool-dd--small" data-tool-dd="criterio">
+          <button class="tool-btn tool-btn--dd" type="button" aria-haspopup="true" aria-expanded="false">
+            <span class="tool-btn__label" id="critLabel">Critério</span>
+            <span class="tool-btn__caret">▼</span>
+          </button>
+
+          <div class="tool-menu tool-menu--small" role="menu" aria-label="Critério">
+            <button class="tool-item is-active" role="menuitem" data-value="Critério">Critério</button>
+            <button class="tool-item" role="menuitem" data-value="Padrão">Padrão</button>
+            <button class="tool-item" role="menuitem" data-value="Detalhado">Detalhado</button>
+          </div>
+        </div>
       </section>
 
       <!-- CONTENT AREA -->
@@ -146,9 +395,7 @@
             <button class="btn btn-primary" type="submit">Salvar</button>
           </div>
 
-          <div class="hint">
-            Dica: o nome fica salvo no seu navegador.
-          </div>
+          <div class="hint">Dica: o nome fica salvo no seu navegador.</div>
         </form>
       </div>
     </div>
