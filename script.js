@@ -247,6 +247,12 @@ sddRoots.forEach(dd => {
       closeAllSideDropdowns();
     });
   });
+
+  // Requirement: Open 'ver' dropdown by default
+  const dataset = dd.dataset.sdd;
+  if (dataset === "ver") {
+    dd.classList.add("is-open");
+  }
 });
 
 // clique fora fecha dropdown

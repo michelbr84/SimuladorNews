@@ -190,6 +190,17 @@ body{
 }
 .badge-inline{ color:#061007; }
 
+.sdd-sep{
+  height:10px;
+  margin:4px 0;
+  border-top:2px solid rgba(0,0,0,.25);
+  opacity:.85;
+}
+.sdd-item.is-active{
+  outline:2px solid rgba(255,211,0,.45);
+  background: rgba(255,255,255,.25);
+}
+
 .has-sub{ position:relative; }
 .chev{ color:#061007; opacity:.9; font-weight:900; }
 
