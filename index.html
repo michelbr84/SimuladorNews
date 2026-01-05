@@ -1,0 +1,159 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notícias - Layout (Replica)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="side-date">
+          <div class="side-day">Domingo</div>
+          <div class="side-num">22.8.04 <span>TAR</span></div>
+        </div>
+
+        <div class="nav-arrows" aria-label="Navegação rápida">
+          <button class="arrow" type="button" title="Voltar">◀</button>
+          <button class="arrow" type="button" title="Avançar">▶</button>
+        </div>
+      </div>
+
+      <!-- USER CARD (editável) -->
+      <div class="user-card" aria-label="Usuário">
+        <div class="user-lines">
+          <div class="user-name" id="sideFirstName">Michel</div>
+          <div class="user-last" id="sideLastName">Duek</div>
+        </div>
+
+        <button class="user-edit" type="button" id="editUserBtn" title="Editar nome">
+          ✎
+        </button>
+      </div>
+
+      <nav class="side-menu" aria-label="Menu">
+        <button class="side-btn" type="button">Continuar Jogo</button>
+
+        <button class="side-btn is-active" type="button">
+          <span class="badge" id="badgeFirstName">Michel</span>
+          <span id="badgeLastName">Duek</span>
+        </button>
+
+        <button class="side-btn" type="button">Competições</button>
+        <button class="side-btn" type="button">Nações &amp; Clubes</button>
+        <button class="side-btn" type="button">Procurar</button>
+        <button class="side-btn is-warn" type="button">Opções Jogo</button>
+      </nav>
+    </aside>
+
+    <!-- MAIN PANEL -->
+    <main class="panel">
+      <!-- TOP TITLE BAR -->
+      <header class="titlebar">
+        <div class="titlebar-inner">
+          <h1>Notícias para <span id="headerFullName">Michel Duek</span></h1>
+        </div>
+      </header>
+
+      <!-- TOP TABS -->
+      <section class="tabs" role="tablist" aria-label="Abas">
+        <button class="tab is-active" role="tab" aria-selected="true" data-tab="todas">Todas</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="mensagens">Mensagens</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="competicoes">Competições</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="lesoes">Lesões e Suspensões</button>
+      </section>
+
+      <!-- CONTENT AREA -->
+      <section class="content">
+        <!-- LIST -->
+        <div class="list-wrap">
+          <div class="list-head">
+            <div class="list-col list-col--date"></div>
+            <div class="list-col list-col--title"></div>
+          </div>
+
+          <div class="list" id="newsList" role="listbox" aria-label="Lista de notícias"></div>
+        </div>
+
+        <!-- DETAIL -->
+        <div class="detail-wrap">
+          <div class="detail-top">
+            <label class="filter">
+              <span>Filtro :</span>
+              <select id="filterSelect">
+                <option value="all">Todos</option>
+                <option value="brasil">Brasil</option>
+                <option value="transferencias">Transferências</option>
+                <option value="competicoes">Competições</option>
+                <option value="lesoes">Lesões</option>
+              </select>
+            </label>
+
+            <button class="read-next" type="button" id="readNextBtn">Ler Próxima</button>
+          </div>
+
+          <div class="detail-body">
+            <h2 id="newsTitle">Selecione uma notícia</h2>
+            <p id="newsBody" class="detail-text">
+              Clique em um item à esquerda para visualizar aqui.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM BUTTON STRIP -->
+      <section class="bottom-strip" aria-label="Atalhos">
+        <button class="strip-btn" type="button">Contratos e Imprensa</button>
+        <button class="strip-btn is-active" type="button">Transferências</button>
+        <button class="strip-btn" type="button">Empregos</button>
+        <button class="strip-btn" type="button">Registos</button>
+      </section>
+
+      <!-- FOOTER NAV -->
+      <footer class="footer-nav">
+        <button class="nav-btn" type="button" id="backBtn">Atrás</button>
+        <button class="nav-btn" type="button" id="nextBtn">Seguinte</button>
+      </footer>
+    </main>
+
+    <!-- MODAL EDIT USER -->
+    <div class="modal" id="userModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="1"></div>
+
+      <div class="modal-card" role="dialog" aria-modal="true" aria-label="Editar usuário">
+        <div class="modal-head">
+          <div class="modal-title">Editar Usuário</div>
+          <button class="modal-close" type="button" data-close="1" aria-label="Fechar">✕</button>
+        </div>
+
+        <form class="modal-body" id="userForm">
+          <label class="field">
+            <span>Nome</span>
+            <input id="firstNameInput" type="text" autocomplete="given-name" maxlength="24" />
+          </label>
+
+          <label class="field">
+            <span>Sobrenome</span>
+            <input id="lastNameInput" type="text" autocomplete="family-name" maxlength="24" />
+          </label>
+
+          <div class="modal-actions">
+            <button class="btn" type="button" data-close="1">Cancelar</button>
+            <button class="btn btn-primary" type="submit">Salvar</button>
+          </div>
+
+          <div class="hint">
+            Dica: o nome fica salvo no seu navegador.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
