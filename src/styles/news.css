@@ -1,0 +1,99 @@
+.list-wrap {
+    border: 2px solid rgba(255, 255, 255, .10);
+    background: linear-gradient(180deg, rgba(0, 0, 0, .30), rgba(0, 0, 0, .15));
+    overflow: hidden;
+}
+
+.list-head {
+    height: 10px;
+    opacity: 0;
+}
+
+.list {
+    height: 100%;
+    overflow: auto;
+    padding: 6px;
+}
+
+.list::-webkit-scrollbar {
+    width: 12px;
+}
+
+.list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .14);
+    border: 3px solid rgba(0, 0, 0, .35);
+    border-radius: 8px;
+}
+
+.list::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, .25);
+}
+
+.news-item {
+    display: grid;
+    grid-template-columns: 105px 1fr;
+    gap: 8px;
+    align-items: center;
+    margin: 6px 0;
+    cursor: pointer;
+}
+
+.news-date {
+    background: linear-gradient(180deg, #0c2c9f, #071b63);
+    border: 1px solid rgba(255, 255, 255, .14);
+    color: #eaf0ff;
+    font-weight: 800;
+    padding: 6px 8px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .35);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.news-title {
+    background: linear-gradient(180deg, rgba(120, 0, 0, .85), rgba(70, 0, 0, .85));
+    border: 1px solid rgba(255, 255, 255, .10);
+    padding: 6px 10px;
+    font-weight: 800;
+    color: #fff;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .35);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.news-item.is-selected .news-title {
+    outline: 2px solid rgba(255, 211, 0, .55);
+}
+
+.news-item.is-selected .news-date {
+    outline: 2px solid rgba(255, 211, 0, .25);
+}
+
+.detail-wrap {
+    border: 2px solid rgba(255, 255, 255, .10);
+    background:
+        radial-gradient(900px 420px at 70% 55%, rgba(255, 255, 255, .08), transparent 58%),
+        radial-gradient(700px 320px at 72% 58%, rgba(255, 211, 0, .12), transparent 60%),
+        linear-gradient(180deg, rgba(0, 0, 0, .30), rgba(0, 0, 0, .18));
+    overflow: hidden;
+}
+
+.detail-body {
+    padding: 6px 16px 16px;
+}
+
+.detail-body h2 {
+    margin: 6px 0 10px;
+    color: var(--yellow);
+    font-size: 22px;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, .35);
+}
+
+.detail-text {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.45;
+    color: #f2f6ff;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, .35);
+}

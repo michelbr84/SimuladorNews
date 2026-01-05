@@ -1,0 +1,170 @@
+/* Generic Dropdown */
+.sdd {
+    position: relative;
+}
+
+.sdd-menu {
+    position: absolute;
+    left: calc(100% + 8px);
+    top: 0;
+    width: 230px;
+    background: linear-gradient(180deg, var(--green1), var(--green2));
+    border: 2px solid rgba(0, 0, 0, .45);
+    box-shadow: var(--shadow);
+    padding: 6px;
+    display: none;
+    z-index: 60;
+}
+
+.sdd.is-open>.sdd-menu {
+    display: block;
+}
+
+.sdd-menu--small {
+    width: 180px;
+}
+
+.sdd-item {
+    width: 100%;
+    text-align: left;
+    background: rgba(0, 0, 0, .18);
+    border: 1px solid rgba(0, 0, 0, .35);
+    color: #061007;
+    font-weight: 900;
+    padding: 7px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.sdd-item:hover {
+    filter: brightness(1.05);
+    outline: 1px solid rgba(255, 211, 0, .45);
+}
+
+.badge-inline {
+    color: #061007;
+}
+
+.sdd-sep {
+    height: 10px;
+    margin: 4px 0;
+    border-top: 2px solid rgba(0, 0, 0, .25);
+    opacity: .85;
+}
+
+.sdd-item.is-active {
+    outline: 2px solid rgba(255, 211, 0, .45);
+    background: rgba(255, 255, 255, .25);
+}
+
+.has-sub {
+    position: relative;
+}
+
+.chev {
+    color: #061007;
+    opacity: .9;
+    font-weight: 900;
+}
+
+.submenu {
+    position: absolute;
+    top: -2px;
+    left: calc(100% + 8px);
+    width: 160px;
+    background: linear-gradient(180deg, var(--green1), var(--green2));
+    border: 2px solid rgba(0, 0, 0, .45);
+    box-shadow: var(--shadow);
+    padding: 6px;
+    display: none;
+}
+
+.has-sub:hover>.submenu,
+.has-sub:focus-within>.submenu {
+    display: block;
+}
+
+/* Tool Dropdowns */
+.tool-dd {
+    position: relative;
+}
+
+.tool-dd--small .tool-btn {
+    min-width: 160px;
+}
+
+.tool-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    width: 280px;
+    background: linear-gradient(180deg, var(--green1), var(--green2));
+    border: 2px solid rgba(0, 0, 0, .45);
+    box-shadow: var(--shadow);
+    padding: 6px;
+    display: none;
+    z-index: 70;
+}
+
+.tool-menu--small {
+    width: 180px;
+}
+
+.tool-dd.is-open .tool-menu {
+    display: block;
+}
+
+.tool-item {
+    width: 100%;
+    text-align: left;
+    background: rgba(0, 0, 0, .18);
+    border: 1px solid rgba(0, 0, 0, .35);
+    color: #061007;
+    font-weight: 900;
+    padding: 7px 10px;
+    cursor: pointer;
+}
+
+.tool-item:hover {
+    filter: brightness(1.05);
+    outline: 1px solid rgba(255, 211, 0, .45);
+}
+
+.tool-item.is-active {
+    outline: 2px solid rgba(255, 211, 0, .35);
+}
+
+.tool-sep {
+    height: 10px;
+    margin: 6px 0;
+    border-top: 2px solid rgba(0, 0, 0, .25);
+    opacity: .85;
+}
+
+@media (max-width: 980px) {
+
+    /* side dropdown vira abaixo */
+    .sdd-menu {
+        position: relative;
+        left: 0;
+        top: 6px;
+        width: 100%;
+    }
+
+    .submenu {
+        position: relative;
+        left: 0;
+        top: 6px;
+        width: 100%;
+    }
+
+    /* toolbar menu vira abaixo */
+    .tool-menu {
+        position: relative;
+        top: 6px;
+        width: 100%;
+    }
+}

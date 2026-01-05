@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Notícias - Layout (Replica)</title>
+    <!-- CSS is imported via main.ts in Vite -->
+</head>
+
+<body>
+    <!-- CLEAN REWRITE -->
+    <div class="app">
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="side-date">
+                    <div class="side-day">Domingo</div>
+                    <div class="side-num">22.8.04 <span>TAR</span></div>
+                </div>
+
+                <div class="nav-arrows" aria-label="Navegação rápida">
+                    <button class="arrow" type="button" title="Voltar">&#9664;</button>
+                    <button class="arrow" type="button" title="Avançar">&#9654;</button>
+                </div>
+            </div>
+
+            <!-- USER CARD -->
+            <div class="user-card" aria-label="Usuário">
+                <div class="user-lines">
+                    <div class="user-name" id="sideFirstName">Michel</div>
+                    <div class="user-last" id="sideLastName">Duek</div>
+                </div>
+
+                <button class="user-edit" type="button" id="editUserBtn" title="Editar nome">
+                    &#9998;
+                </button>
+            </div>
+
+            <!-- SIDE MENU -->
+            <nav class="side-menu" aria-label="Menu">
+                <button class="side-btn" type="button">Continuar Jogo</button>
+
+                <!-- Ver Dropdown -->
+                <div class="sdd" data-sdd="ver">
+                    <button class="side-btn side-btn--dd is-active" type="button">
+                        <span>Plantel do Baré</span>
+                        <span class="dd-caret">&#9654;</span>
+                    </button>
+
+                    <div class="sdd-menu" role="menu" aria-label="Ver">
+                        <button class="sdd-item is-active" role="menuitem">Plantel do Baré</button>
+                        <button class="sdd-item" role="menuitem">Reservas do Baré</button>
+                        <button class="sdd-item" role="menuitem">Controlar Equipa Reservas</button>
+                        <button class="sdd-item" role="menuitem">Confiança da Direção</button>
+                        <button class="sdd-item" role="menuitem">Rescindir com Clube</button>
+                        <div class="sdd-sep"></div>
+                        <button class="sdd-item" role="menuitem">Notícias</button>
+                        <button class="sdd-item" role="menuitem">Pesquisa Jogador & Staff</button>
+                        <button class="sdd-item" role="menuitem">Comparar dois jogadores escolhidos</button>
+                        <button class="sdd-item" role="menuitem">Estatísticas dos Treinadores</button>
+                        <button class="sdd-item" role="menuitem">Informação de Empregos</button>
+                        <div class="sdd-sep"></div>
+                        <button class="sdd-item" role="menuitem">Transferências</button>
+                        <button class="sdd-item" role="menuitem">Historial</button>
+                        <div class="sdd-sep"></div>
+                        <button class="sdd-item" role="menuitem">Ir de Férias</button>
+                        <button class="sdd-item" role="menuitem">Retirar-se</button>
+                    </div>
+                </div>
+
+                <div class="sdd" data-sdd="competicoes">
+                    <button class="side-btn side-btn--dd" type="button">
+                        Competições <span class="dd-caret">&#9654;</span>
+                    </button>
+                    <div class="sdd-menu" role="menu" aria-label="Competições">
+                        <!-- Submenus removed for brevity if causing issues, but keeping basic structure -->
+                        <div class="sdd-item" role="menuitem">Campeonato Mundial</div>
+                        <div class="sdd-item" role="menuitem">Internacionais</div>
+                        <div class="sdd-item" role="menuitem">Internacionais-Clubes</div>
+                        <div class="sdd-item" role="menuitem">Norte Americanas</div>
+                        <div class="sdd-item" role="menuitem">Sul Americanas</div>
+                        <div class="sdd-item" role="menuitem">Asiáticas</div>
+                        <div class="sdd-item" role="menuitem">Europeias</div>
+                        <div class="sdd-item" role="menuitem">Oceânicas</div>
+                    </div>
+                </div>
+
+                <div class="sdd" data-sdd="nacoes">
+                    <button class="side-btn side-btn--dd" type="button">
+                        Nações &amp; Clubes <span class="dd-caret">&#9654;</span>
+                    </button>
+                    <div class="sdd-menu" role="menu" aria-label="Nações">
+                        <button class="sdd-item" role="menuitem">Seleções</button>
+                    </div>
+                </div>
+
+                <div class="sdd" data-sdd="procurar">
+                    <button class="side-btn side-btn--dd" type="button">
+                        Procurar <span class="dd-caret">&#9654;</span>
+                    </button>
+                    <div class="sdd-menu sdd-menu--small" role="menu" aria-label="Procurar">
+                        <button class="sdd-item" role="menuitem">País</button>
+                        <button class="sdd-item" role="menuitem">Clube</button>
+                    </div>
+                </div>
+
+                <div class="sdd" data-sdd="opcoes">
+                    <button class="side-btn side-btn--dd is-warn" type="button">
+                        Opções Jogo <span class="dd-caret">&#9654;</span>
+                    </button>
+                    <div class="sdd-menu" role="menu" aria-label="Opções">
+                        <button class="sdd-item" role="menuitem">Gravar Jogo</button>
+                        <button class="sdd-item" role="menuitem">Sair</button>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- MAIN PANEL -->
+        <main class="panel">
+            <header class="titlebar">
+                <div class="titlebar-inner">
+                    <h1>Notícias para <span id="headerFullName">Michel Duek</span></h1>
+                </div>
+            </header>
+
+            <section class="tabs" role="tablist">
+                <button class="tab is-active" role="tab" data-tab="todas">Todas</button>
+                <button class="tab" role="tab" data-tab="mensagens">Mensagens</button>
+                <button class="tab" role="tab" data-tab="competicoes">Competições</button>
+                <button class="tab" role="tab" data-tab="lesoes">Lesões</button>
+            </section>
+
+            <section class="toolbar" aria-label="Toolbar">
+                <div class="tool-dd" data-tool-dd="ver">
+                    <button class="tool-btn tool-btn--dd" type="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="tool-btn__label" id="verLabel">Plantel do Baré</span>
+                        <span class="tool-btn__caret">&#9660;</span>
+                    </button>
+                    <div class="tool-menu" role="menu">
+                        <button class="tool-item is-active" data-value="Plantel do Baré">Plantel do Baré</button>
+                        <button class="tool-item" data-value="Notícias">Notícias</button>
+                    </div>
+                </div>
+
+                <div class="tool-dd tool-dd--small" data-tool-dd="criterio">
+                    <button class="tool-btn tool-btn--dd" type="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="tool-btn__label" id="critLabel">Critério</span>
+                        <span class="tool-btn__caret">&#9660;</span>
+                    </button>
+                    <div class="tool-menu tool-menu--small" role="menu">
+                        <button class="tool-item is-active" data-value="Critério">Critério</button>
+                        <button class="tool-item" data-value="Padrão">Padrão</button>
+                        <button class="tool-item" data-value="Detalhado">Detalhado</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content">
+                <div class="list-wrap">
+                    <div class="list-head">
+                        <div class="list-col list-col--date"></div>
+                        <div class="list-col list-col--title"></div>
+                    </div>
+                    <div class="list" id="newsList" role="listbox"></div>
+                </div>
+
+                <div class="detail-wrap">
+                    <div class="detail-top">
+                        <label class="filter">
+                            <span>Filtro :</span>
+                            <select id="filterSelect">
+                                <option value="all">Todos</option>
+                                <option value="brasil">Brasil</option>
+                            </select>
+                        </label>
+                        <button class="read-next" type="button" id="readNextBtn">Ler Próxima</button>
+                    </div>
+                    <div class="detail-body">
+                        <h2 id="newsTitle">Selecione uma notícia</h2>
+                        <p id="newsBody" class="detail-text">Clique em um item.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bottom-strip">
+                <button class="strip-btn">Contratos</button>
+                <button class="strip-btn is-active">Transferências</button>
+                <button class="strip-btn">Empregos</button>
+                <button class="strip-btn">Registos</button>
+            </section>
+
+            <footer class="footer-nav">
+                <button class="nav-btn" id="backBtn">Atrás</button>
+                <button class="nav-btn" id="nextBtn">Seguinte</button>
+            </footer>
+        </main>
+
+        <!-- MODAL -->
+        <div class="modal" id="userModal" aria-hidden="true">
+            <div class="modal-backdrop" data-close="1"></div>
+            <div class="modal-card" role="dialog" aria-modal="true">
+                <div class="modal-head">
+                    <div class="modal-title">Editar Usuário</div>
+                    <button class="modal-close" data-close="1">✕</button>
+                </div>
+                <form class="modal-body" id="userForm">
+                    <label class="field">
+                        <span>Nome</span>
+                        <input id="firstNameInput" type="text" maxlength="24" />
+                    </label>
+                    <label class="field">
+                        <span>Sobrenome</span>
+                        <input id="lastNameInput" type="text" maxlength="24" />
+                    </label>
+                    <div class="modal-actions">
+                        <button class="btn" type="button" data-close="1">Cancelar</button>
+                        <button class="btn btn-primary" type="submit">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>

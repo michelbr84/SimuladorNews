@@ -1,0 +1,20 @@
+:root {
+    --bg: #020714;
+    --panel: #0b0f1f;
+
+    --tab: #2a0f6a;
+    --tab2: #1b0a49;
+    --tabLine: #f0d04b;
+
+    --red: #b20000;
+    --red2: #820000;
+
+    --text: #e9eefb;
+    --yellow: #ffd300;
+
+    --shadow: 0 10px 30px rgba(0, 0, 0, .45);
+
+    /* dropdown verde */
+    --green1: #0b6a1c;
+    --green2: #075212;
+}
